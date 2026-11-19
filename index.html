@@ -72,7 +72,7 @@ body{
 .intro-rule .ic{width:14px;height:14px}
 .intro-go{margin-top:8px;font-size:.88rem;color:var(--gold-hi);display:flex;flex-direction:column;align-items:center;gap:8px}
 .intro-go i{display:block;width:120px;height:2px;background:rgba(201,162,78,.2);overflow:hidden;border-radius:2px}
-.intro-go i::after{content:"";display:block;height:100%;width:100%;background:var(--gold);transform-origin:right;animation:fill 7s linear forwards}
+.intro-go i::after{content:"";display:block;height:100%;width:100%;background:var(--gold);transform-origin:right;animation:fill 10s linear forwards}
 @keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 #intro:focus-visible{outline:none}
 #intro:focus-visible .intro-in::before{border-color:var(--gold-hi)}
@@ -266,7 +266,6 @@ body{
     <h2 class="intro-h foil-night">دعوة شخصية خاصة</h2>
     <div class="intro-rule"><span></span><svg class="ic"><use href="#i-cross"/></svg><span></span></div>
     <p class="intro-p">هذه الدعوة موجّهة إليكم شخصياً<br>و<b>خاصة بالمدعوّين فقط</b></p>
-    <p class="intro-s">نرجو التكرّم بعدم تداولها أو إعادة إرسالها<br>شاكرين لكم حسن تقديركم</p>
     <p class="intro-en">For invited guests only</p>
     <div class="intro-go"><span>اضغط للمتابعة</span><i></i></div>
   </div>
@@ -600,7 +599,7 @@ body{
   }
   intro.addEventListener('click', function(){ closeIntro(true); });
   intro.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); closeIntro(true); } });
-  setTimeout(function(){ closeIntro(false); }, reduce ? 9000 : 7000);
+  setTimeout(function(){ closeIntro(false); }, 10000);
   intro.focus({preventScroll:true});
 
   /* ---------------- open / restart ---------------- */
