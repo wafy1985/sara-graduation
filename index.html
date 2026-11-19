@@ -49,6 +49,34 @@ body{
 .foil{background-image:linear-gradient(100deg,#7d5a1a 0%,#c9a24e 28%,#8f6a24 50%,#d9b866 72%,#7d5a1a 100%)}
 @keyframes shine{to{background-position:220% center}}
 
+/* ---------- private notice (first screen) ---------- */
+#intro{
+  position:fixed;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;padding:28px 22px;cursor:pointer;
+  background-color:var(--night);
+  background-image:radial-gradient(90% 60% at 50% 45%, rgba(21,41,90,.95) 0%, var(--night) 60%, #050c1c 100%);
+  transition:opacity 1s ease, visibility 0s linear 1s;
+}
+#intro.away{opacity:0;visibility:hidden;pointer-events:none}
+.intro-in{position:relative;margin:auto;width:min(100%,360px);padding:46px 26px 38px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.intro-in::before,.intro-in::after{content:"";position:absolute;inset:0;border:1px solid rgba(201,162,78,.55);pointer-events:none}
+.intro-in::after{inset:7px;border-color:rgba(201,162,78,.25)}
+.lock{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;color:var(--gold-hi);border:1px solid var(--gold);box-shadow:inset 0 0 0 4px var(--night),inset 0 0 0 5px rgba(201,162,78,.45)}
+.lock .ic{width:28px;height:28px}
+.intro-h{font-family:var(--f-display);font-weight:700;font-size:clamp(1.9rem,8.4vw,2.3rem);white-space:nowrap;line-height:1.5}
+.intro-p{font-family:var(--f-display);font-size:1.3rem;line-height:1.9;color:#f4ecdc;text-wrap:balance}
+.intro-p b{color:var(--gold-hi);font-weight:700}
+.intro-s{font-size:.9rem;line-height:1.9;color:#aab3c8;text-wrap:balance}
+.intro-en{font-family:var(--f-en);font-style:italic;font-size:1.05rem;color:var(--gold);direction:ltr}
+.intro-rule{display:flex;align-items:center;gap:10px;width:70%;color:var(--gold)}
+.intro-rule span{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.intro-rule .ic{width:14px;height:14px}
+.intro-go{margin-top:8px;font-size:.88rem;color:var(--gold-hi);display:flex;flex-direction:column;align-items:center;gap:8px}
+.intro-go i{display:block;width:120px;height:2px;background:rgba(201,162,78,.2);overflow:hidden;border-radius:2px}
+.intro-go i::after{content:"";display:block;height:100%;width:100%;background:var(--gold);transform-origin:right;animation:fill 7s linear forwards}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+#intro:focus-visible{outline:none}
+#intro:focus-visible .intro-in::before{border-color:var(--gold-hi)}
+
 /* ---------- cover ---------- */
 #cover{
   position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:28px 18px;overflow-y:auto;
@@ -215,6 +243,7 @@ body{
   <symbol id="i-rod" viewBox="0 0 24 24"><path d="M12 2.5v19"/><path d="M14.6 4.6c.9.2 1.4.8 1.2 1.5-.3 1-2 1.3-3.8 1.7s-3.3 1-3.3 2.1 1.6 1.6 3.3 1.9 3.3.9 3.3 2-1.6 1.6-3.3 1.9-3.2.8-3.2 1.8c0 .8.9 1.3 2.2 1.5"/><path d="M14.6 4.6l1.6-.6"/></symbol>
   <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9.5 12 5l10 4.5L12 14Z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9.5V15"/></symbol>
   <symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 5.5a3 3 0 0 0-5.5-1.6A3 3 0 0 0 4 7.6a3 3 0 0 0-1 5.1 3.4 3.4 0 0 0 3.4 5.2A3 3 0 0 0 12 19.4Z"/><path d="M12 5.5a3 3 0 0 1 5.5-1.6A3 3 0 0 1 20 7.6a3 3 0 0 1 1 5.1 3.4 3.4 0 0 1-3.4 5.2A3 3 0 0 1 12 19.4"/><path d="M12 5.5v13.9M8.2 9.3c1.2.3 2 1.1 2.2 2.3M15.8 9.3c-1.2.3-2 1.1-2.2 2.3M7.2 14.2c1 0 1.9.5 2.4 1.3M16.8 14.2c-1 0-1.9.5-2.4 1.3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="1.6"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><path d="M12 14.5v2.5"/></symbol>
   <symbol id="i-cross" viewBox="0 0 24 24"><path d="M9.5 3h5v6.5H21v5h-6.5V21h-5v-6.5H3v-5h6.5Z"/></symbol>
   <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></symbol>
   <symbol id="i-house" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></symbol>
@@ -228,6 +257,20 @@ body{
 
 <canvas id="sky" aria-hidden="true"></canvas>
 <canvas id="confetti" aria-hidden="true"></canvas>
+
+<!-- ========== Private notice ========== -->
+<section id="intro" role="button" tabindex="0" aria-label="دعوة شخصية خاصة بالمدعوّين فقط، اضغط للمتابعة">
+  <div class="intro-in">
+    <span class="lock"><svg class="ic"><use href="#i-lock"/></svg></span>
+    <p class="eyebrow-en">Private Invitation</p>
+    <h2 class="intro-h foil-night">دعوة شخصية خاصة</h2>
+    <div class="intro-rule"><span></span><svg class="ic"><use href="#i-cross"/></svg><span></span></div>
+    <p class="intro-p">هذه الدعوة موجّهة إليكم شخصياً<br>و<b>خاصة بالمدعوّين فقط</b></p>
+    <p class="intro-s">نرجو التكرّم بعدم تداولها أو إعادة إرسالها<br>شاكرين لكم حسن تقديركم</p>
+    <p class="intro-en">For invited guests only</p>
+    <div class="intro-go"><span>اضغط للمتابعة</span><i></i></div>
+  </div>
+</section>
 
 <!-- ========== Cover ========== -->
 <section id="cover" aria-label="الغلاف">
@@ -545,11 +588,26 @@ body{
     if (document.hidden) AC.suspend(); else if (musicOn) AC.resume();
   });
 
+  /* ---------------- private notice ---------------- */
+  var intro = document.getElementById('intro'), introDone = false;
+  function closeIntro(fromTap){
+    if (introDone) return;
+    introDone = true;
+    if (fromTap) { try { if (!musicOn) musicStart(); } catch (e) {} }
+    intro.classList.add('away');
+    intro.setAttribute('aria-hidden', 'true');
+    setTimeout(function(){ document.getElementById('openBtn').focus({preventScroll:true}); }, 900);
+  }
+  intro.addEventListener('click', function(){ closeIntro(true); });
+  intro.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); closeIntro(true); } });
+  setTimeout(function(){ closeIntro(false); }, reduce ? 9000 : 7000);
+  intro.focus({preventScroll:true});
+
   /* ---------------- open / restart ---------------- */
   document.getElementById('openBtn').addEventListener('click', function(){
     if (opened) return;
     opened = true;
-    try { musicStart(); } catch (e) {}
+    try { if (!musicOn) musicStart(); } catch (e) {}
     envelope.classList.add('open');
     setTimeout(function(){
       cover.classList.add('away');
